@@ -101,5 +101,5 @@ class transcription():
 
 
 if __name__ == '__main__':
-    t = transcription(".\\video\\video.mp4")
+    t = transcription(".\\source\\video.mp4")
     t.transcribe_gcs("gs://systemproject2019/audio.wav")
