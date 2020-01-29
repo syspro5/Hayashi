@@ -7,14 +7,6 @@ Hayashi no folder desu
 
 Virtualenv
 
-### auth.json
-
-Google Colud Plattformの認証のため
-
-### speech_transcription.py 
-
-文字起こし
-
 ### source
 - speech.csv
 
@@ -31,3 +23,12 @@ Google Colud Plattformの認証のため
 - [video].wav
 
   変換した音声ファイル
+
+### auth.json
+
+Google Colud Plattformの認証のため
+
+### speech_transcription.py 
+
+文字起こし
+
