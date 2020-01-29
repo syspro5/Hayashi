@@ -2,6 +2,9 @@
 
 Hayashi no folder desu
 
+Google Cloud SDKのインストールが必要かも
+
+https://cloud.google.com/sdk/?hl=ja
 ## Structure
 ### SysPro
 
