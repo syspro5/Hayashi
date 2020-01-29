@@ -1,11 +1,6 @@
 # !/usr/bin/env python
 # coding: utf-8
-import argparse
 import io
-import sys
-import codecs
-import datetime
-import locale
 import os
 import csv
 import pandas as pd
@@ -51,8 +46,10 @@ class transcription():
         # 時間情報と共に字幕を取得
         for result in operationResult.results:
             alternative = result.alternatives[0]
+            """
             print(u'Transcript: {}'.format(alternative.transcript))
             print('Confidence: {}'.format(alternative.confidence))
+            """
 
             flg = 0
             for word_info in alternative.words:
@@ -77,10 +74,12 @@ class transcription():
             transcript_data.append(
                 ['{}'.format(alternative.transcript), head, end])
 
+        # 単語ごとに分割
         df = pd.DataFrame(speech_data, columns=[
                           'word', 'start_time', 'end_time'])
         df.to_csv('.\\source\\speech.csv', encoding='utf_8_sig')
 
+        # 文章ごとに分割
         dft = pd.DataFrame(transcript_data, columns=[
             'word', 'start_time', 'end_time'])
         dft.to_csv('.\\source\\transcript.csv', encoding='utf_8_sig')
@@ -90,7 +89,7 @@ class transcription():
         video = VideoFileClip(self.video_file)
         self.audio_file = self.video_file.replace('.mp4', '.wav')
         video.audio.write_audiofile(self.audio_file,
-                                    ffmpeg_params=['-ac', '1'])  # Conver to mono
+                                    ffmpeg_params=['-ac', '1'])  # Convert to mono
 
     def gcsupload(self):
         # upload to google cloud strage
